@@ -3,6 +3,9 @@ services:
     database-mongodb:
         container_name: database-mongodb
         image: mongo
+        environment:
+            - MONGO_INITDB_ROOT_USERNAME=develop
+            - MONGO_INITDB_ROOT_PASSWORD=develop
         ports :
             - "27017:27017"            
         volumes:

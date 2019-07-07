@@ -30,6 +30,6 @@ cd $HOME/jenkins-minikube/simple-microservice-typescript && kompose up
 
 #2. Start Application
 kubectl apply -f $HOME/gc-app/simple-microservice-typescript/docker-compose/templates/app-server-deployment.yaml
-kubectl expose deployment app-server --type NodePort --port 3000
+kubectl expose deployment gc-app --type NodePort --port 3000
 
 echo "$(minikube ip):$(kubectl describe service app-server | grep NodePort: | grep -Eo '[0-9]{1,5}')"

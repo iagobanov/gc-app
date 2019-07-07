@@ -7,7 +7,12 @@ metadata:
   name: database-mongodb
 spec:
   containers:
-  - image: mongo
+  - env:
+    - name: MONGO_INITDB_ROOT_PASSWORD
+      value: develop
+    - name: MONGO_INITDB_ROOT_USERNAME
+      value: develop
+    image: mongo
     name: database-mongodb
     ports:
     - containerPort: 27017
