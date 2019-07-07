@@ -1,0 +1,43 @@
+version: "3"
+services:
+    database-mongodb:
+        container_name: database-mongodb
+        image: mongo
+        ports :
+            - "27017:27017"            
+        volumes:
+            - /data/storage/mongodb/current:/data/db
+        deploy:
+            replicas: 1
+            resources:
+                limits:
+                    cpus: '1'
+                    memory: 512M
+                reservations:
+                    cpus: '0.5'
+                    memory: 256M          
+            restart_policy:
+                condition: on-failure            
+    app-server:
+        container_name: app-server
+        image:  iagobanov/gc-app
+        ports :
+            - "3000:3000"
+        volumes:
+            - ./app:/root/workspace/app
+        deploy:
+            replicas: 1
+            resources:
+                limits:
+                    cpus: '1'
+                    memory: 1024M
+                reservations:
+                    cpus: '1'
+                    memory: 2048M        
+            restart_policy:
+                condition: on-failure
+        links:
+            - database-mongodb             
+        depends_on:
+            - database-mongodb  
+

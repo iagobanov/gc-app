@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gc-app
+spec:
+  selector:
+    matchLabels:
+      run: gc-app
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        run: gc-app
+    spec:
+      containers:
+      - name: app-server
+        image: iagobanov/gc-app
+        ports:
+        - containerPort: 3000

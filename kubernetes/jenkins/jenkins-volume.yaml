@@ -1,0 +1,15 @@
+
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: jenkins-volume
+  namespace: gc-jenkins-ns
+spec:
+  storageClassName: jenkins-volume
+  accessModes:
+    - ReadWriteOnce
+  capacity:
+    storage: 20Gi
+  persistentVolumeReclaimPolicy: Retain
+  hostPath:
+    path: /data/jenkins-volume/

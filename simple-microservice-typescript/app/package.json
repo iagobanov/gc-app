@@ -1,0 +1,43 @@
+{
+  "name": "simple-microservice-typescript",
+  "version": "1.0.0",
+  "description": "Simple microservice typescript",
+  "main": "./dist/bundle.js",
+  "scripts": {
+    "build-production": "webpack --config webpack.config.js; node ./dist/bin/app.js",
+    "build-development": "webpack --config webpack.config.js --watch",
+    "start": "npm install; npm run build-$NODE_ENV",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/helionogueir/simple-microservice-typescript.git"
+  },
+  "keywords": [
+    "microservice",
+    "typescript"
+  ],
+  "author": "Helio Nogueira <helio.nogueir@gmail.com>",
+  "license": "Unlicense",
+  "dependencies": {
+    "@types/connect-timeout": "0.0.34",
+    "@types/express": "^4.16.1",
+    "@types/mongodb": "^3.1.28",
+    "@types/node": "^11.13.10",
+    "awesome-typescript-loader": "^5.2.1",
+    "connect-timeout": "^1.9.0",
+    "express": "^4.16.4",
+    "mongodb": "^3.2.7",
+    "ts-node": "^8.1.0",
+    "typescript": "^3.4.4",
+    "webpack": "^4.34.0",
+    "webpack-cli": "^3.3.2"
+  },
+  "devDependencies": {
+    "@types/jest": "^24.0.13",
+    "jest": "^24.8.0",
+    "nodemon": "^1.19.0",
+    "nodemon-webpack-plugin": "^4.0.8",
+    "ts-jest": "^24.0.2"
+  }
+}

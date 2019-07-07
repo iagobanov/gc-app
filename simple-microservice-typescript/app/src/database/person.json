@@ -1,0 +1,27 @@
+{
+  "validator": {
+    "$jsonSchema": {
+      "bsonType": "object",
+      "required": [
+        "firstname",
+        "lastname",
+        "birthday"
+      ],
+      "properties": {
+        "_id": {
+          "bsonType": "objectId"
+        },
+        "firstname": {
+          "bsonType": "string"
+        },
+        "lastname": {
+          "bsonType": "string"
+        },
+        "birthday": {
+          "bsonType": "string",
+          "pattern": "^(\\d{4})-(\\d{2})-(\\d{2})$"
+        }
+      }
+    }
+  }
+}
