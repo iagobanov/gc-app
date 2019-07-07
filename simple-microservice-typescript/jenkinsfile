@@ -1,7 +1,7 @@
 #!groovy
 @Library('gc-libs') _
 
-provKMSCreateKey {
+appDeployment {
     properties([
       parameters([
         string(name: 'APPNAME', defaultValue: 'gc-app', description: 'The name of the application'),
